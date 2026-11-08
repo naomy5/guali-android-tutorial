@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--Barra menu-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background= "#0F172A"
+        android:orientation="horizontal">
+
+        <Button
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Lecciones"
+            android:textAllCaps="false"
+            android:textSize="12sp" />
+
+        <Button
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Configuración"
+            android:textAllCaps="false"
+            android:textSize="12sp" />
+
+        <Button
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Historial"
+            android:textAllCaps="false"
+            android:textSize="12sp" />
+
+        <Button
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Ayuda"
+            android:textAllCaps="false"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <!--Título: lección activa -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:padding="8dp"
+            android:text="LECCIÓN ACTIVA"
+            android:textColor="#FFFFFF"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="leccion-01-hola-mundo"
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!--Panel de lección activa: imagen,descripción -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="#ECEFF4"
+            android:contentDescription="Imagen de la lección"
+            android:src="@android:drawable/ic_menu_gallery" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:background="#FAFAFA">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="Descripción de la lección activa" />
+        </ScrollView>
+    </LinearLayout>
+
+    <!--Editor de código-->
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_weight="1"
+        android:background="#F5F5F5"
+        android:fontFamily="monospace"
+        android:gravity="top|start"
+        android:hint="Escriba aquí su código Java"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine|textNoSuggestions"
+        android:padding="8dp"
+        android:textSize="13sp" />
+
+    <!--Botones de acción-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="4dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#757575"
+            android:text="Compilar" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#4CAF50"
+            android:text="Ejecutar" />
+    </LinearLayout>
+
+    <!--Panel de consola-->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_margin="8dp"
+        android:background="#212121">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:padding="8dp"
+            android:text="Salida de la consola..."
+            android:textColor="#C8E6C9"
+            android:textSize="12sp" />
+    </ScrollView>
+</LinearLayout>
