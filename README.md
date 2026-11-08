@@ -1,10 +1,13 @@
-## Guali Tutor Móvil: crear el front end de una app Android paso a paso
-Este tutorial explica como construir, con Android Studio y Java, la interfaz principal de Guali Tutor, una aplicación para practicar programación con lecciones cortas. La pantalla incluye los elementos del diseño original: barra de menú, título de la lección activa, panel de lección, editor de código, botones de acción y consola. 
+# Guali Tutor Móvil: crear el front end de una app Android paso a paso
+
+Este tutorial explica cómo construir, con Android Studio y Java, la interfaz principal de Guali Tutor, una aplicación para practicar programación con lecciones cortas. La pantalla incluye los elementos del diseño original: barra de menú, título de la lección activa, panel de lección, editor de código, botones de acción y consola.
+
 Esta fase solo contiene la interfaz (front end). Los botones no tienen funcionalidades.
 
-*Autor*: Naomy Alexandra Ramírez Rafael - *Carné* 3190-23-228
+**Autor:** [TU NOMBRE COMPLETO] — **Carné:** [####-##-###]
 
 ## Contenido
+
 1. Prerrequisitos
 2. Instalar Android Studio
 3. Crear el proyecto
@@ -14,84 +17,97 @@ Esta fase solo contiene la interfaz (front end). Los botones no tienen funcional
 7. Estructura final y código fuente
 
 ## 1. Prerrequisitos
- Requisito                  Detalle
-  Sistema operativo          Windows 10 u 11 (64bits)
- Memoria RAM                8 GB como mínimo (conviene cerrar otros programas mientras se trabaja)
- Espacio en disco           Unos 10 GB libres para Android Studio y el SDK
-Conocimientos              Java básico y nociones de XML
 
- (no hace falta instalar un JDK aparte, Android Studio incluye el suyo)
+| Requisito | Detalle |
+|---|---|
+| Sistema operativo | Windows 10 u 11 (64 bits) |
+| Memoria RAM | 8 GB como mínimo (conviene cerrar otros programas mientras se trabaja) |
+| Espacio en disco | Unos 10 GB libres para Android Studio y el SDK |
+| Internet | Necesario para descargar Android Studio y las dependencias |
+| Conocimientos | Java básico y nociones de XML |
+
+No hace falta instalar un JDK aparte: Android Studio incluye el suyo.
 
 ## 2. Instalar Android Studio
-**Paso 2.1** Entra a la página oficial: https://developer.android.com/studio y descarga el instalador para Windows
 
-Descarga de Android Studio
+**Paso 2.1** Entra a la página oficial <https://developer.android.com/studio> y descarga el instalador para Windows.
 
-**Paso 2.2** Ejecutar el instalador. Deja las opciones por defecto (Android Studio, Android SDK y Android Virtual Device)  y avanza con **Next** hasta **Finish**
+**Paso 2.2** Ejecuta el instalador. Deja las opciones por defecto (Android Studio, Android SDK y Android Virtual Device) y avanza con **Next** hasta **Finish**.
 
-Instalador
+![Instalador](capturas-fase3/01-instalador.png)
 
-**Paso 2.3** Al abrir Android Studio por primera vez aparece un asistente de configuración. Elige la instalación Standard y acepta las licencias. Descagará el SDK, tarda unos minutos y no hay que cerrarlo.
+![Abriendo](capturas-fase3/02-abriendo.png)
 
-Asistente de configuración
-Al terminar se muestra la pantalla de bienvenida con New Project, Open y Clone Repository.
-Pantalla de bienvenida.
+**Paso 2.3** Al abrir Android Studio por primera vez aparece un asistente de configuración. Elige la instalación **Standard** y acepta las licencias. Descargará el SDK, tarda unos minutos y no hay que cerrarlo.
+
+Al terminar se muestra la pantalla de bienvenida con **New Project**, **Open** y **Clone Repository**.
+
+![Pantalla de bienvenida](capturas-fase3/03-inicio.png)
 
 ## 3. Crear el proyecto
-**Paso 3.1** En la pantalla de bienvenida pulsa New Project.
-**Paso 3.2** En Phone and Tablet, elige la plantilla Empty Views Activity (diseño clásico con XML, no Jetpack Compose) y pulsa Next.
 
-Elegir la plantilla
+**Paso 3.1** En la pantalla de bienvenida pulsa **New Project**.
 
-**Paso 3.3** Llena la configuación
+**Paso 3.2** En **Phone and Tablet**, elige la plantilla **Empty Views Activity** (diseño clásico con XML, no Jetpack Compose) y pulsa **Next**.
 
-Campo: Valor
+![Elegir plantilla](capturas-fase3/04-plantilla.png)
 
-Name: GualiTutorMovil
+**Paso 3.3** Llena la configuración:
 
-Package name: com.example.gualitutormovil
+| Campo | Valor |
+|---|---|
+| Name | GualiTutorMovil |
+| Package name | com.example.gualitutormovil |
+| Save location | Una carpeta corta, sin espacios |
+| Language | Java |
 
-Save location: una carpeta corta, sin espacios
+![Crear proyecto](capturas-fase3/05-crear-proyecto.png)
 
-Language: Java
+**Paso 3.4** Pulsa **Finish** y espera. La primera vez, Gradle descarga dependencias y la barra de progreso de la parte inferior indica que sigue trabajando. No cierres el programa hasta que termine.
 
-Configuración del proyecto 
+![Proyecto abierto](capturas-fase3/06-proyecto-abierto.png)
 
-**Paso 3.4** Pulsa **Finish** y espera. La primera vez, Gradle descarga dependencias, la barra de progreso de la parte inferior indica que sigue trabajando. No cierres el programa hasta que termine.
+> **Nota sobre "kotlin+java":** en la vista *Android* del árbol, la carpeta de código se llama `kotlin+java`. Es solo el nombre con que Android Studio agrupa las fuentes; el código de este proyecto es Java (`MainActivity`). Los archivos `.kts` son la configuración de compilación.
 
-Proyecto abierto
+## 4. Abrir el archivo de diseño
 
-Comentarios acerca de "kotlin+java*: en la vista Android del árbol, la carpeta de código se llama kotlin+java. Es solo el nombre con que Android Studio agrupa las fuentes, el codigo de este proyecto es Java (MainActivity). Los archivos .kts son la configuracion de compilación.
+**Paso 4.1** En el árbol del proyecto abre `app → res → layout → activity_main.xml` con doble clic.
 
-## 4.Abrir el archivo de diseño
-**Paso 4.1** En el árbol del proyecto abre app-> res -> layout -> activity_main.xml con doble clilc
+**Paso 4.2** En la esquina superior derecha del editor elige la vista **Code**, que muestra el XML. Selecciona todo el contenido (`Ctrl + A`) y bórralo.
 
-**Paso 4.2** en la esquina superior derecha del editor elige la vista Code, que muestra el XML. Selecciona todo el contenido ( Ctrl + A) y bórralo.
+![Vista Code de activity_main.xml](capturas-fase3/07-vista-proyecto.png)
 
-Vista Code de activity_main.xml
+## 5. Construir la pantalla
 
-## 5.Construir la pantalla
 Se construye por partes. Cada paso agrega un bloque dentro del contenedor principal.
 
-**Paso 5.1 Contenedor principal**
-Un LinearLayout vertical hace que los elementos se apilen de arriba hacia abajo. Escribe esto: 
+### Paso 5.1 Contenedor principal
+
+Un `LinearLayout` vertical hace que los elementos se apilen de arriba hacia abajo. Escribe esto:
+
+```xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-</LinearLayout>
-    
-Contenedor principal
 
-**Paso 5.2 Barra de menú**
-Cuatro botones sin rellenos que se reparten el ancho por igual (layout_weight="1"). Pega este bloque antes de </LinearLayout)>
-<!--Barra menu-->
+    <!-- Aquí van los bloques de los siguientes pasos -->
+
+</LinearLayout>
+```
+
+### Paso 5.2 Barra de menú
+
+Cuatro botones sin relleno que se reparten el ancho por igual (`layout_weight="1"`). Pega este bloque dentro del contenedor, antes de la etiqueta `</LinearLayout>` del final:
+
+```xml
+    <!-- Barra de menú -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background= "#0F172A"
+        android:background="#0F172A"
         android:orientation="horizontal">
 
         <Button
@@ -130,12 +146,14 @@ Cuatro botones sin rellenos que se reparten el ancho por igual (layout_weight="1
             android:textAllCaps="false"
             android:textSize="12sp" />
     </LinearLayout>
+```
 
-    Barra de menú 
+### Paso 5.3 Título de lección activa
 
-**Paso 5.3 Título de lección activa**
-    Una etiqueta negra con el texto "LECCION ACTIVA" y a su lado el nombre de la lección
-     <!--Título: lección activa -->
+Una etiqueta negra con el texto "LECCIÓN ACTIVA" y, a su lado, el nombre de la lección:
+
+```xml
+    <!-- Título: lección activa -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -157,11 +175,14 @@ Cuatro botones sin rellenos que se reparten el ancho por igual (layout_weight="1
             android:text="leccion-01-hola-mundo"
             android:textSize="14sp" />
     </LinearLayout>
-Título de lección activa
+```
 
-**Paso 5.4 Panel de lección activa**
-Una imagen arriba y debajo, la descripcion con desplazamiento (ScrollView) por si el texto es largo. Con layout_height="0dp" y layout_weight="1" el panel ocupa el espacio sobrante: 
- <!--Panel de lección activa: imagen,descripción -->
+### Paso 5.4 Panel de lección activa
+
+Una imagen arriba y, debajo, la descripción con desplazamiento (`ScrollView`) por si el texto es largo. Con `layout_height="0dp"` y `layout_weight="1"` el panel ocupa el espacio sobrante:
+
+```xml
+    <!-- Panel de lección activa: imagen y descripción -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -190,11 +211,14 @@ Una imagen arriba y debajo, la descripcion con desplazamiento (ScrollView) por s
                 android:text="Descripción de la lección activa" />
         </ScrollView>
     </LinearLayout>
-Panel de lección activa
+```
 
-**Paso 5.5 Editor de código**
-Un EditText de varias líneas con fuente monoespaciada, donde el estudiante escribirá su código:
- <!--Editor de código-->
+### Paso 5.5 Editor de código
+
+Un `EditText` de varias líneas con fuente monoespaciada, donde el estudiante escribirá su código:
+
+```xml
+    <!-- Editor de código -->
     <EditText
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -209,12 +233,14 @@ Un EditText de varias líneas con fuente monoespaciada, donde el estudiante escr
         android:inputType="textMultiLine|textNoSuggestions"
         android:padding="8dp"
         android:textSize="13sp" />
+```
 
-Editor de código
+### Paso 5.6 Botones de acción
 
-**Paso 5.6 Botones de acción**
-**Compilar** (gris) y **Ejecutar** (verde) centrados
-   <!--Botones de acción-->
+**Compilar** (gris) y **Ejecutar** (verde), centrados:
+
+```xml
+    <!-- Botones de acción -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -235,12 +261,14 @@ Editor de código
             android:backgroundTint="#4CAF50"
             android:text="Ejecutar" />
     </LinearLayout>
-Botones de acción
+```
 
-**Paso 5.7 Panel de consola**
-Un area oscura de altura fija (110 dp) para mostrar la salida de compilación y ejecución:
+### Paso 5.7 Panel de consola
 
-    <!--Panel de consola-->
+Un área oscura de altura fija (110 dp) para mostrar la salida de compilación y ejecución. Este es el último bloque; el `</LinearLayout>` del final ya lo escribiste en el paso 5.1:
+
+```xml
+    <!-- Panel de consola -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="110dp"
@@ -256,45 +284,38 @@ Un area oscura de altura fija (110 dp) para mostrar la salida de compilación y 
             android:textColor="#C8E6C9"
             android:textSize="12sp" />
     </ScrollView>
-</LinearLayout>
+```
 
 ## 6. Ver el resultado
-**Opción A: vista previa del editor**. Cambia a la vista **Split** (o**Design**) en la esquina superior derecha. A la derecha aparece la pantalla del teléfono con todos los elementos.
 
-**Opción B: ejecutar en el emulador (opcional)**. Arriba selecciona el dispositivo (por ejemplo *Medium Phone* ) y pulsa el botón verde **Run**. La primera vez descarga la imagen del emulador y puede tardar. Con 8 GB de RAM puede ir lento, se recomienda cerrar otros programas o usar un telefono real con la depuración por USB activada.
+**Opción A: vista previa del editor.** Cambia a la vista **Split** (o **Design**) en la esquina superior derecha. A la derecha aparece la pantalla del teléfono con todos los elementos.
 
-Emulador
+**Opción B: ejecutar en el emulador (opcional).** Arriba selecciona el dispositivo (por ejemplo *Medium Phone*) y pulsa el botón verde **Run**. La primera vez descarga la imagen del emulador y puede tardar. Con 8 GB de RAM puede ir lento: se recomienda cerrar otros programas o usar un teléfono real con la depuración por USB activada.
+
+![Vista del proyecto](capturas-fase3/08-dise%C3%B1o.png)
 
 ## 7. Estructura final y código fuente
+
+```
 GualiTutorMovil/
 └── app/
     └── src/main/
         ├── java/com/example/gualitutormovil/MainActivity.java
         ├── res/layout/activity_main.xml      <- toda la interfaz
         └── AndroidManifest.xml
-        
-El diseño completo esta en activity_main.xml de este respositorio.
+```
 
-**Resumen de elementos**
+El diseño completo está en [`activity_main.xml`](GualiTutorMovil/app/src/main/res/layout/activity_main.xml) de este repositorio.
 
-Elementos:Componente de Android
+### Resumen de elementos
 
-Barra menú:LinearLayout horizontal con 4 Button
+| Elemento | Componente de Android |
+|---|---|
+| Barra de menú | `LinearLayout` horizontal con 4 `Button` |
+| Título de lección activa | `LinearLayout` con 2 `TextView` |
+| Panel de lección activa | `ImageView` + `ScrollView` con `TextView` |
+| Editor de código | `EditText` multilínea, fuente monoespaciada |
+| Botones de acción | 2 `Button` (Compilar y Ejecutar) |
+| Panel de consola | `ScrollView` con `TextView` |
 
-Titulo de lección activa: LinearLayout con 2 TextView
-
-Panel de lección activa:ImageView + ScrollView con TextView
-
-Editor de código: EditText multilinea, fuente monoespaciada
-
-Botones de acción: 2 Button (Compilar y ejecutar)
-
-Panel de consola: ScrollView con TextView
-
-Proyecto de Android Studio con el codigo completo en este mismo repositorio. 
-
-
-
-
-   
-   
+El proyecto de Android Studio con el código completo está en este mismo repositorio.
