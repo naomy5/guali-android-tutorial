@@ -4,7 +4,7 @@ Este tutorial explica cómo construir, con Android Studio y Java, la interfaz pr
 
 Esta fase solo contiene la interfaz (front end). Los botones no tienen funcionalidades.
 
-**Autor:** [TU NOMBRE COMPLETO] — **Carné:** [####-##-###]
+**Autor:** Naomy Alexandra Ramírez Rafael — **Carné:** 3190-23-2281
 
 ## Contenido
 
